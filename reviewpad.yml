@@ -20,6 +20,13 @@ labels:
 # A workflow is a list of actions that will be executed based on the defined rules.
 # For more details see https://docs.reviewpad.com/guides/syntax#workflow.
 workflows:
+  - name: auto-merge-on-required-approvals
+    description: Automerge after required approvals if no changes were made critical code
+    always-run: true
+    if:
+      - '!$hasAnnotation("critical") && $hasRequiredApprovals(1, $team("Trailblazers"))'
+    then:
+      - $merge()
   # This workflow calls Reviewpad AI agent to summarize the pull request.
   - name: summarize
     description: Summarize the pull request
