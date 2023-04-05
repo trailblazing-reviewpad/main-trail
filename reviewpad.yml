@@ -24,7 +24,7 @@ workflows:
     description: Automerge after required approvals if no changes were made critical code
     always-run: true
     if:
-      - '!$hasAnnotation("critical") && $hasRequiredApprovals(1, $team("Trailblazers"))'
+      - '!$hasAnnotation("critical") && $hasRequiredApprovals(1, $team("trailblazers"))'
     then:
       - $merge()
   # This workflow calls Reviewpad AI agent to summarize the pull request.
