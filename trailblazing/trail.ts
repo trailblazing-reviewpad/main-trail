@@ -13,6 +13,7 @@ interface Address {
   zip: string;
 }
 
+// @reviewpad-an: critical
 function greet(person: Person) {
   console.log(`Hello, ${person.name}!`);
 }
