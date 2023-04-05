@@ -24,7 +24,7 @@ workflows:
     description: Automerge after required approvals if no changes were made critical code
     always-run: true
     if:
-      - '!$hasAnnotation("critical") && $hasRequiredApprovals(2, $team("core"))'
+      - '!$hasAnnotation("critical") && $hasRequiredApprovals(1, $team("trailblazers"))'
     then:
       - $merge()
 
