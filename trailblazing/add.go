@@ -4,7 +4,7 @@
 
 package utils
 
-// @reviewpad-an: critical
+// reviewpad-an: critical
 func Add(x, y int) int {
 	return x + y
 }
