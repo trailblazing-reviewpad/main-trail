@@ -3,7 +3,6 @@ interface Person {
   name: string;
   age: number;
   email?: string;
-  address?: Address;
 }
 
 interface Address {
