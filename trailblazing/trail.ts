@@ -3,6 +3,14 @@ interface Person {
   name: string;
   age: number;
   email?: string;
+  address?: Address;
+}
+
+interface Address {
+  street: string;
+  city: string;
+  state: string;
+  zip: string;
 }
 
 function greet(person: Person) {
@@ -14,6 +22,13 @@ function printPerson(person: Person) {
   console.log(`Age: ${person.age}`);
   if (person.email) {
     console.log(`Email: ${person.email}`);
+  }
+  if (person.address) {
+    console.log('Address:');
+    console.log(`  Street: ${person.address.street}`);
+    console.log(`  City: ${person.address.city}`);
+    console.log(`  State: ${person.address.state}`);
+    console.log(`  Zip: ${person.address.zip}`);
   }
 }
 
@@ -40,10 +55,24 @@ function getEmailAddress(person: Person) {
   }
 }
 
+function getFormattedAddress(person: Person) {
+  if (person.address) {
+    return `${person.address.street}, ${person.address.city}, ${person.address.state} ${person.address.zip}`;
+  } else {
+    return 'No address';
+  }
+}
+
 const john: Person = {
   name: 'John',
   age: 30,
   email: 'john@example.com',
+  address: {
+    street: '123 Main St',
+    city: 'Anytown',
+    state: 'CA',
+    zip: '12345'
+  }
 };
 
 const jane: Person = {
@@ -73,6 +102,11 @@ for (const person of people) {
 console.log('Email addresses:');
 for (const person of people) {
   console.log(getEmailAddress(person));
+}
+
+console.log('Formatted addresses:');
+for (const person of people) {
+  console.log(getFormattedAddress(person));
 }
 
 export {};
