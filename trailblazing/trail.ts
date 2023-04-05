@@ -16,6 +16,7 @@ interface Address {
 // @reviewpad-an: critical
 function greet(person: Person) {
   console.log(`Hello, ${person.name}!`);
+  console.log(`This is a test output to for auto-merge-on-required-approvals`);
 }
 
 function printPerson(person: Person) {
