@@ -1,4 +1,4 @@
-// @reviewpad-an: critical
+// reviewpad-an: critical
 interface Person {
   name: string;
   age: number;
@@ -13,10 +13,8 @@ interface Address {
   zip: string;
 }
 
-// @reviewpad-an: critical
 function greet(person: Person) {
   console.log(`Hello, ${person.name}!`);
-  console.log(`This is a test output to for auto-merge-on-required-approvals`);
 }
 
 function printPerson(person: Person) {
