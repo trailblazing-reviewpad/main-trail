@@ -40,11 +40,9 @@ workflows:
   - name: summarize
     description: Summarize the pull request
     always-run: true
-    if:
-      # Summarize the pull request on pull request synchronization.
-      - rule: ($eventType() == "synchronize" || $eventType() == "opened") && $state() == "open"
-        extra-actions:
-          - $summarize()
+    # Summarize the pull requests when pull requests are opened or synchronized.
+    if: ($eventType() == "synchronize" || $eventType() == "opened") && $state() == "open"
+    then: $summarize()
 
   # Runs Reviewpad Summarize on open GitHub Issues
   - name: summarize-issue
