@@ -4,6 +4,7 @@ interface Person {
   age: number;
   email?: string;
   address?: Address;
+  extraField?: string;
 }
 
 interface Address {
