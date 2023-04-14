@@ -46,6 +46,14 @@ workflows:
         extra-actions:
           - $summarize()
 
+  # Runs Reviewpad Summarize on open GitHub Issues
+  - name: summarize-issue
+    always-run: true
+    on:
+      - issue
+    if: $state() == "open"
+    then: $summarize()
+
   # This workflow praises contributors on their pull request contributions.
   # This helps contributors feel appreciated.
   - name: praise-contributors-on-milestones
