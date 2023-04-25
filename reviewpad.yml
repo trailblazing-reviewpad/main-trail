@@ -36,21 +36,21 @@ workflows:
     then:
       - $warn("Reviewpad won't automerge this PR because it changes critical code.")
 
-  # This workflow calls Reviewpad AI agent to summarize the pull request.
-  - name: summarize
-    description: Summarize the pull request
-    always-run: true
-    # Summarize the pull requests when pull requests are opened or synchronized.
-    if: ($eventType() == "synchronize" || $eventType() == "opened") && $state() == "open"
-    then: $summarize()
+  # # This workflow calls Reviewpad AI agent to summarize the pull request.
+  # - name: summarize
+  #   description: Summarize the pull request
+  #   always-run: true
+  #   # Summarize the pull requests when pull requests are opened or synchronized.
+  #   if: ($eventType() == "synchronize" || $eventType() == "opened") && $state() == "open"
+  #   then: $summarize()
 
-  # Runs Reviewpad Summarize on open GitHub Issues
-  - name: summarize-issue
-    always-run: true
-    on:
-      - issue
-    if: $state() == "open"
-    then: $summarize()
+  # # Runs Reviewpad Summarize on open GitHub Issues
+  # - name: summarize-issue
+  #   always-run: true
+  #   on:
+  #     - issue
+  #   if: $state() == "open"
+  #   then: $summarize()
 
   # This workflow praises contributors on their pull request contributions.
   # This helps contributors feel appreciated.
