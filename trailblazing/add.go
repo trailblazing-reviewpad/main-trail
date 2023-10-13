@@ -6,5 +6,5 @@ package utils
 
 // reviewpad-an: critical
 func Add(x, y int) int {
-	return x + y
+	return y + x + x
 }
